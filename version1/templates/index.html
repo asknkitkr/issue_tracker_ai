@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker - Home</title>
+</head>
+<body>
+    <h1>Issue Tracker</h1>
+    <form action="/create_issue/" method="post">
+        <input type="text" name="title" placeholder="Enter Issue title" required />
+        <textarea name="description" placeholder="Description"></textarea>
+        <button type="submit">Create Issue</button>
+    </form>
+
+    <h2>Generated Issues</h2>
+    <ul>
+        {% for issue in issues %}
+            <li><a href="/issue/{{issue.id}}">{{issue.title}}</a> - {{issue.description}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
